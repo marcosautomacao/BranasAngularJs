@@ -1,0 +1,23 @@
+{
+  "name": "branasangularjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcosautomacao/BranasAngularJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcosautomacao/BranasAngularJs/issues"
+  },
+  "homepage": "https://github.com/marcosautomacao/BranasAngularJs#readme",
+  "dependencies": {
+    "angular": "^1.8.0",
+    "bootstrap": "^4.5.2"
+  }
+}
