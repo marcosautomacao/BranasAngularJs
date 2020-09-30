@@ -18,7 +18,7 @@ A controller is a JavaScript Object, created by a standard JavaScript object con
 - ng-style: The ngStyle directive allows you to set CSS style on an HTML element conditionally.
 
 - ng-options: The ngOptions attribute can be used to dynamically generate a list of ```<option>``` elements for the ```<select>``` element using the array or object obtained by evaluating the ngOptions comprehension expression.
-
+    
 - ng-click: The ngClick directive allows you to specify custom behavior when an element is clicked.
 
 - ng-disabled: This directive sets the disabled attribute on the element (typically a form control, e.g. input, button, select etc.) if the expression inside ngDisabled evaluates to truthy.
@@ -42,4 +42,10 @@ $error(from FormController): Object: An object hash, containing references to co
 - ngMessages: is a directive that is designed to show and hide messages based on the state of a key/value object that it listens on. The directive itself complements error message reporting with the ngModel $error object (which stores a key/value state of validation errors).
 
 ## FourthCommit:
+
+- filter: Selects a subset of items from array and returns it as a new array. {{ filter_expression | filter : expression : comparator : anyPropertyKey}}
+
+- orderBy: Returns an array containing the items from the specified collection, ordered by a comparator function based on the values computed using the expression predicate.
+{{ orderBy_expression | orderBy : expression : reverse : comparator}}
+
 
