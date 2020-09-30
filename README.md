@@ -1,5 +1,7 @@
 # BranasAngularJs
 
+To run back end -> node server.js in ./server/.
+
 ## FirstCommit:
 
 The AngularJS application is defined by  ng-app="listaTelefonica". Create a "listaTelefonica" Module"

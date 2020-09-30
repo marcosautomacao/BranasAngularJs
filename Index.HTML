@@ -6,65 +6,9 @@
 	<script src="node_modules\angular-messages\angular-messages.js"></script>
 	<script src="angular-locale\angular-locale_pt-br.js"></script>
 	<link rel="stylesheet" type="text/css" href="node_modules\bootstrap\dist\css\bootstrap.css">
-	<style>
-		.jumbotron {
-			width: 600px;
-			text-align: center;
-			margin-top: 20px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		.table {
-			margin-top: 20px;
-		}
-		.form-control {
-			margin-bottom: 5px;
-		}
-		.selecionado {
-			background-color: yellow;
-		}
-		.negrito {
-			font-weight: bold;
-		}
-	</style>
-	<script>
-		angular.module("listaTelefonica", ['ngMessages', 'ngLocale']);
-		angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope) {
-			$scope.app = "Lista Telefonica";
-			$scope.contatos = [
-				{nome: "Pedro", telefone: "99998888", data: new Date(), cor: "blue"},
-				{nome: "Ana", telefone: "99998877", data: new Date(), cor: "yellow"},
-				{nome: "Maria", telefone: "99998866", data: new Date(), cor: "red"}
-			];
-			$scope.operadoras = [
-				{nome: "Oi", codigo: 14, categoria: "Celular", preco: 2},
-				{nome: "Vivo", codigo: 15, categoria: "Celular", preco: 3},
-				{nome: "Tim", codigo: 41, categoria: "Celular", preco: 1},
-				{nome: "GVT", codigo: 25, categoria: "Fixo", preco: 5},
-				{nome: "Embratel", codigo: 21, categoria: "Fixo", preco: 2}
-			];
-			$scope.adicionarContato = function (contato) {
-				contato.data = new Date();
-				$scope.contatos.push(angular.copy(contato));
-				delete $scope.contato;
-				$scope.contatoForm.$setPristine();
-			};
-			$scope.apagarContatos = function (contatos) {
-				$scope.contatos = contatos.filter(function (contato) {
-					if (!contato.selecionado) return contato;
-				});
-			};
-			$scope.isContatoSelecionado = function (contatos) {
-				return contatos.some(function (contato) {
-					return contato.selecionado;
-				});
-			};
-			$scope.ordenarPor = function (campo) {
-				$scope.criterioDeOrdenacao = campo;
-				$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
-			};
-		});
-	</script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/listaTelefonicaCtrl.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body ng-controller="listaTelefonicaCtrl">
 	<div class="jumbotron">
@@ -95,11 +39,11 @@
 			</select>
 		</form>
 
-		<div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
-			<div ng-message="required">
+		<div ng-show="contatoForm.nome.$dirty" ng-messages="contatoForm.nome.$error">
+			<div ng-message="required" class="alert alert-danger">
 				Por favor, preencha o campo nome!
 			</div>
-			<div ng-message="minlength">
+			<div ng-message="minlength" class="alert alert-danger">
 				O campo nome deve ter no mínimo 10 caracteres.
 			</div>
 		</div>
